@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class GoogleSearchTest {
 
@@ -33,7 +33,7 @@ public class GoogleSearchTest {
     searchBox.submit();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-    assertEquals("quality-stream Introducción a la Automatización de Pruebas de Software - Buscar con Google", driver.getTitle());
+    assertThat(driver.getTitle()).contains("quality-stream Introducción a la Automatización de Pruebas de Software - Buscar con Google");
   }
 
   @AfterAll
