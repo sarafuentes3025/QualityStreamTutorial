@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -38,10 +39,10 @@ public class MercuryTours_AutomatedTest {
   }
 
   @Test
-  public void registerUser() throws InterruptedException {
+  public void registerUser() {
     driver.get("http://demo.guru99.com/test/newtours/register.php");
     driver.findElement(registerLinkLocator).click();
-    Thread.sleep((2_000));
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     if (driver.findElement(registerPageLocator).isDisplayed()) {
       driver.findElement(userNameLocator).sendKeys("qualityAdmin");
       driver.findElement(passwordLocator).sendKeys("pass1");
@@ -58,15 +59,15 @@ public class MercuryTours_AutomatedTest {
   }
 
   @Test
-  public void signIn() throws InterruptedException {
+  public void signIn() {
     driver.get("http://demo.guru99.com/test/newtours/index.php");
-    if (driver.findElement(userLocator).isDisplayed()){
-    driver.findElement(userLocator).sendKeys("qualityAdmin");
-    driver.findElement(passLocator).sendKeys("pass1");
-    driver.findElement(signInBtnLocator).click();
-    Thread.sleep(2_000);
-    assertTrue(driver.findElement(homePageLocator).isDisplayed());
-  }else {
+    if (driver.findElement(userLocator).isDisplayed()) {
+      driver.findElement(userLocator).sendKeys("qualityAdmin");
+      driver.findElement(passLocator).sendKeys("pass1");
+      driver.findElement(signInBtnLocator).click();
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      assertTrue(driver.findElement(homePageLocator).isDisplayed());
+    } else {
       System.out.println("username texbox was not present");
     }
   }
