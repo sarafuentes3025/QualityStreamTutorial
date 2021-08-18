@@ -5,8 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -22,7 +22,7 @@ public class GoogleSearchTest {
   }
 
   @Test
-  public void testGooglePage(){
+  public void testGooglePage() {
     driver.get("https://www.google.com/");
     WebElement searchBox = driver.findElement(By.name("q"));
 
@@ -31,13 +31,19 @@ public class GoogleSearchTest {
     searchBox.sendKeys("quality-stream Introducción a la Automatización de Pruebas de Software");
 
     searchBox.submit();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+//  Implicit Wait
+//    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+//    Explicit Wait
+    WebDriverWait eWait = new WebDriverWait(driver, 10);
+    eWait.until(ExpectedConditions.titleContains("quality-stream"));
 
     assertThat(driver.getTitle()).contains("quality-stream Introducción a la Automatización de Pruebas de Software - Buscar con Google");
   }
 
   @AfterAll
-  static void tearDown(){
+  static void tearDown() {
     driver.quit();
   }
 }
