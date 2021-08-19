@@ -1,3 +1,5 @@
+package com.qualityStream.tutorial;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -14,13 +16,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MercuryTours_AutomatedTest {
 
-  public static WebDriver driver;
+//  elementos de la página de Register
+  private static WebDriver driver;
   By registerLinkLocator = By.linkText("REGISTER");
   By registerPageLocator = By.xpath("//img[@src='images/mast_register.gif']");
   By userNameLocator = By.id("email");
   By passwordLocator = By.name("password");
   By confirmPasswordLocator = By.cssSelector("input[name='confirmPassword']");
   By registerBtnLocator = By.name("submit");
+
+//  elementos de la página Sign in
   By userLocator = By.name("userName");
   By passLocator = By.name("password");
   By signInBtnLocator = By.name("submit");
