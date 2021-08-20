@@ -24,7 +24,7 @@ public class SignInPage extends Base {
     }
   }
 
-  public boolean isHonmePageDisplayed() {
+  public boolean isHomePageDisplayed() {
     return isDisplayed(homePageLocator);
   }
 }
