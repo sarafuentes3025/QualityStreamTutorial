@@ -73,7 +73,7 @@ public class MercuryTours_AutomatedTest {
       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
       assertTrue(driver.findElement(homePageLocator).isDisplayed());
     } else {
-      System.out.println("username texbox was not present");
+      System.out.println("username textBox was not present");
     }
   }
 }
