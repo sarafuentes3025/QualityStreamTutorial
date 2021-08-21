@@ -37,7 +37,9 @@ public class RegisterPage extends Base {
   }
 
   public String registeredMessage() {
-    List<WebElement> font = findElements(registeredMessage);
-    return getText((By) font.get(5));
+
+    List<WebElement> fonts = findElements(registeredMessage);
+    return fonts.get(5).getText();
+
   }
 }
