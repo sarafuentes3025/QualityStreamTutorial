@@ -18,15 +18,15 @@ public class ReadExcelFile {
 
     XSSFWorkbook newWorkBook = new XSSFWorkbook(inputStream);
 
-    XSSFSheet newSheet =  newWorkBook.getSheet(sheetName);
+    XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
 
     int rowCount = newSheet.getLastRowNum() + newSheet.getFirstRowNum();
 
-    for(int i = 0; i< rowCount; i++){
+    for (int i = 0; i < rowCount; i++) {
       XSSFRow row = newSheet.getRow(i);
 
-      for(int j = 0; j<row.getLastCellNum(); j++){
-        System.out.println(row.getCell(j).getStringCellValue()+ "||");
+      for (int j = 0; j < row.getLastCellNum(); j++) {
+        System.out.println(row.getCell(j).getStringCellValue() + "||");
       }
     }
   }
@@ -38,7 +38,7 @@ public class ReadExcelFile {
 
     XSSFWorkbook newWorkBook = new XSSFWorkbook(inputStream);
 
-    XSSFSheet newSheet =  newWorkBook.getSheet(sheetName);
+    XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
 
     XSSFRow row = newSheet.getRow(rowNumber);
 

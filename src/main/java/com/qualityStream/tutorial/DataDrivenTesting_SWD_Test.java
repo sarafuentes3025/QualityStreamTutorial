@@ -14,9 +14,9 @@ public class DataDrivenTesting_SWD_Test {
   private WebDriver driver;
   private WriteExcelFile writeExcelFile;
   private ReadExcelFile readExcelFile;
-  private By searchBoxLocator = By.id("search_query_top");
-  private By searchBtnLocator = By.name("submit_search");
-  private By resultTextLocator = By.cssSelector("span.heading-counter");
+  private final By searchBoxLocator = By.id("search_query_top");
+  private final By searchBtnLocator = By.name("submit_search");
+  private final By resultTextLocator = By.cssSelector("span.heading-counter");
 
   @BeforeEach
   public void setUp() {
@@ -34,7 +34,7 @@ public class DataDrivenTesting_SWD_Test {
   }
 
   @Test
-  public void test() throws InterruptedException, IOException {
+  public void test() throws IOException {
     String filePath = "/Users/sarafuentes/Desktop/Test.xlsx";
 
     String searchText = readExcelFile.getCellValue(filePath, "Sheet1", 0, 0);
@@ -43,14 +43,13 @@ public class DataDrivenTesting_SWD_Test {
     driver.findElement(searchBtnLocator).click();
     String resultText = driver.findElement(resultTextLocator).getText();
 
-    System.out.println("Page result text:"+resultText);
+    System.out.println("Page result text:" + resultText);
 
-    readExcelFile.readExcel(filePath,"Sheet1");
+    readExcelFile.readExcel(filePath, "Sheet1");
 
     writeExcelFile.writeCellValue(filePath, "Sheet1", 0, 1, resultText);
 
     readExcelFile.readExcel(filePath, "Sheet1");
-
   }
 
 }
