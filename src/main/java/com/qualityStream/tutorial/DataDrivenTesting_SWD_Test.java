@@ -34,60 +34,25 @@ public class DataDrivenTesting_SWD_Test {
   }
 
   @Test
-  public void writeCellValue_searchByDresses() throws IOException {
-    String filePath = "/Users/sarafuentes/Desktop/Test.xlsx";
+  public void test() throws IOException {
 
-    String searchText = readExcelFile.getCellValue(filePath, "Sheet1", 0, 0);
+    for (int i = 0; i <= 2; i++) {
+      String filePath = "/Users/sarafuentes/Desktop/Test.xlsx";
+      String searchText = readExcelFile.getCellValue(filePath, "Sheet1", i, 0);
 
-    driver.findElement(searchBoxLocator).sendKeys(searchText);
-    driver.findElement(searchBtnLocator).click();
-    String resultText = driver.findElement(resultTextLocator).getText();
+      driver.findElement(searchBoxLocator).sendKeys(searchText);
+      driver.findElement(searchBtnLocator).click();
 
-    System.out.println("Page result text:" + resultText);
+      String resultText = driver.findElement(resultTextLocator).getText();
 
-    readExcelFile.readExcel(filePath, "Sheet1");
+      System.out.println("Page result text:" + resultText);
 
-    writeExcelFile.writeCellValue(filePath, "Sheet1", 0, 1, resultText);
+      readExcelFile.readExcel(filePath, "Sheet1");
 
-    readExcelFile.readExcel(filePath, "Sheet1");
+      writeExcelFile.writeCellValue(filePath, "Sheet1", i, 1, resultText);
+
+      readExcelFile.readExcel(filePath, "Sheet1");
+      driver.findElement(searchBoxLocator).clear();
+    }
   }
-
-  @Test
-  public void writeCellValue_searchByBlouse() throws IOException {
-    String filePath = "/Users/sarafuentes/Desktop/Test.xlsx";
-
-    String searchText = readExcelFile.getCellValue(filePath, "Sheet1", 1, 0);
-
-    driver.findElement(searchBoxLocator).sendKeys(searchText);
-    driver.findElement(searchBtnLocator).click();
-    String resultText = driver.findElement(resultTextLocator).getText();
-
-    System.out.println("Page result text:" + resultText);
-
-    readExcelFile.readExcel(filePath, "Sheet1");
-
-    writeExcelFile.writeCellValue(filePath, "Sheet1", 1, 1, resultText);
-
-    readExcelFile.readExcel(filePath, "Sheet1");
-  }
-
-  @Test
-  public void writeCellValue_searchByShort() throws IOException {
-    String filePath = "/Users/sarafuentes/Desktop/Test.xlsx";
-
-    String searchText = readExcelFile.getCellValue(filePath, "Sheet1", 2, 0);
-
-    driver.findElement(searchBoxLocator).sendKeys(searchText);
-    driver.findElement(searchBtnLocator).click();
-    String resultText = driver.findElement(resultTextLocator).getText();
-
-    System.out.println("Page result text:" + resultText);
-
-    readExcelFile.readExcel(filePath, "Sheet1");
-
-    writeExcelFile.writeCellValue(filePath, "Sheet1", 2, 1, resultText);
-
-    readExcelFile.readExcel(filePath, "Sheet1");
-  }
-
 }
