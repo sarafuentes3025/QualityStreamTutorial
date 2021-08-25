@@ -29,7 +29,7 @@ public class Base {
     return driver.findElements(locator);
   }
 
-  public String gettext(WebElement element) {
+  public String getText(WebElement element) {
     return element.getText();
   }
 
@@ -43,6 +43,10 @@ public class Base {
 
   public void click(By locator) {
     driver.findElement(locator).click();
+  }
+
+  public void click(WebElement element){
+    element.click();
   }
 
   public Boolean isDisplayed(By locator) {
