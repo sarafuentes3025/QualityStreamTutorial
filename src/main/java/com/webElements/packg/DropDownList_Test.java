@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class DropDownList_Test {
 
@@ -29,6 +29,7 @@ public class DropDownList_Test {
   public void testing_classic_DDL() {
     ddLPage.visit("http://demo.guru99.com/test/newtours/index.php");
     ddLPage.signIn();
-    assertEquals(ddLPage.selectDropDownList_DepartingFrom(), "Paris");
+    assertThat(ddLPage.selectDropDownList_Passengers()).isEqualTo("4");
+    assertThat(ddLPage.selectDropDownList_DepartingFrom()).isEqualTo("Paris");
   }
 }
