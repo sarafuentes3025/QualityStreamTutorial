@@ -16,6 +16,11 @@ public class DropDownList_Page extends Base {
   By flightsLinkLocator = By.linkText("Flights");
   By dropDownList_Passengers = By.name("passCount");
   By dropDownList_DepartingFrom = By.name("fromPort");
+  By dropDownList_OnMonth = By.name("fromMonth");
+  By dropDownList_OnDay = By.name("fromDay");
+  By dropDownList_ArrivingIn = By.name("toPort");
+  By dropDownList_ReturningMonth = By.name("toMonth");
+  By dropDownList_ReturningDay = By.name("toDay");
 
   By userLocator = By.name("userName");
   By passLocator = By.name("password");
@@ -57,6 +62,36 @@ public class DropDownList_Page extends Base {
   public String selectDropDownList_DepartingFrom() {
     Select selectList = new Select(findElement(dropDownList_DepartingFrom));
     selectList.selectByVisibleText("Paris");
+    return getText(selectList.getFirstSelectedOption());
+  }
+
+  public String selectDropDownList_OnMonth() {
+    Select selectList = new Select(findElement(dropDownList_OnMonth));
+    selectList.selectByVisibleText("September");
+    return getText(selectList.getFirstSelectedOption());
+  }
+
+  public String selectDropDownList_OnDay() {
+    Select selectList = new Select(findElement(dropDownList_OnDay));
+    selectList.selectByVisibleText("15");
+    return getText(selectList.getFirstSelectedOption());
+  }
+
+  public String selectDropDownList_ArrivingIn() {
+    Select selectList = new Select(findElement(dropDownList_ArrivingIn));
+    selectList.selectByVisibleText("San Francisco");
+    return getText(selectList.getFirstSelectedOption());
+  }
+
+  public String selectDropDownList_ReturningMonth() {
+    Select selectList = new Select(findElement(dropDownList_ReturningMonth));
+    selectList.selectByVisibleText("September");
+    return getText(selectList.getFirstSelectedOption());
+  }
+
+  public String selectDropDownList_ReturningDay() {
+    Select selectList = new Select(findElement(dropDownList_ReturningDay));
+    selectList.selectByVisibleText("31");
     return getText(selectList.getFirstSelectedOption());
   }
 }

@@ -31,5 +31,10 @@ public class DropDownList_Test {
     ddLPage.signIn();
     assertThat(ddLPage.selectDropDownList_Passengers()).isEqualTo("4");
     assertThat(ddLPage.selectDropDownList_DepartingFrom()).isEqualTo("Paris");
+    assertThat(ddLPage.selectDropDownList_OnMonth()).isEqualTo("September");
+    assertThat(ddLPage.selectDropDownList_OnDay()).isEqualTo("15");
+    assertThat(ddLPage.selectDropDownList_ArrivingIn()).isEqualTo("San Francisco");
+    assertThat(ddLPage.selectDropDownList_ReturningMonth()).isEqualTo("September");
+    assertThat(ddLPage.selectDropDownList_ReturningDay()).isEqualTo("31");
   }
 }
