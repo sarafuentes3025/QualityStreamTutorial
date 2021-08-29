@@ -10,9 +10,7 @@ import java.util.List;
 
 public class DropDownList_Page extends Base {
 
-//  dropDownList classic - Mercury Tours Page http://demo.guru99.com/test/newtours/index.php
-//  dropDownList bootstrap and react - https://react-bootstrap.github.io/components/dropdowns/
-
+  //  dropDownList classic - Mercury Tours Page http://demo.guru99.com/test/newtours/index.php
   By flightsLinkLocator = By.linkText("Flights");
   By dropDownList_Passengers = By.name("passCount");
   By dropDownList_DepartingFrom = By.name("fromPort");
@@ -26,6 +24,9 @@ public class DropDownList_Page extends Base {
   By passLocator = By.name("password");
   By signInBtnLocator = By.name("submit");
 
+  //  dropDownList bootstrap and react - https://react-bootstrap.github.io/components/dropdowns/
+  By dropDownListBtn = By.id("dropdown-basic");
+  By option2 = By.cssSelector("div[aria-labelledby='dropdown-basic']>a[href='#/action-2']");
 
   public DropDownList_Page(WebDriver driver) {
     super(driver);
@@ -93,5 +94,12 @@ public class DropDownList_Page extends Base {
     Select selectList = new Select(findElement(dropDownList_ReturningDay));
     selectList.selectByVisibleText("31");
     return getText(selectList.getFirstSelectedOption());
+  }
+
+  public void selectReactDropDownList() throws InterruptedException {
+    Thread.sleep(10_000);
+    click(dropDownListBtn);
+    Thread.sleep(10_000);
+    click(option2);
   }
 }
